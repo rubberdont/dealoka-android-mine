@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="TopBar">64dp</dimen>
+    <dimen name="LeftTopBar">120dp</dimen>
+    <dimen name="TabBar">64dp</dimen>
+    
+    <dimen name="ButtonTopBar">60dp</dimen>
+    <dimen name="Button">61dp</dimen>
+    <dimen name="ButtonTutorialWidth">160dp</dimen>
+    <dimen name="ButtonTutorialHeight">50dp</dimen>
+    <dimen name="ButtonQrCode">200dp</dimen>
+    
+    <dimen name="Text">20sp</dimen>
+    <dimen name="TextSmall">15sp</dimen>
+    <dimen name="TextTitle">26sp</dimen>
+    <dimen name="TextTopBar">20sp</dimen>
+    <dimen name="TextHeader">18sp</dimen>
+    <dimen name="TextSub">18sp</dimen>
+    <dimen name="TextButton">20sp</dimen>
+    <dimen name="TextButtonBordered">20sp</dimen>
+    <dimen name="TextButtonSocialMedia">20sp</dimen>
+    <dimen name="TextList">20sp</dimen>
+    <dimen name="TextTab">14sp</dimen>
+    <dimen name="TextEdit">20sp</dimen>
+    <dimen name="TextWalletPoint">16sp</dimen>
+    <dimen name="TextLoading">20sp</dimen>
+    <dimen name="TextListTitle">24sp</dimen>
+    <dimen name="TextListDesc">18sp</dimen>
+    <dimen name="TextDistance">18sp</dimen>
+    <dimen name="TextFeature">16sp</dimen>
+    <dimen name="TextLarge">32sp</dimen>
+    <dimen name="TextMenuHeader">22sp</dimen>
+    <dimen name="TextRedeem">20sp</dimen>
+    <dimen name="TextEditRedeem">22sp</dimen>
+    
+    <dimen name="ImageOffer">320dp</dimen>
+    <dimen name="ImageDistanceWidth">14dp</dimen>
+    <dimen name="ImageDistanceHeight">19dp</dimen>
+    <dimen name="ImageRibbon">34dp</dimen>
+    <dimen name="ImageMenu">35dp</dimen>
+    
+    <dimen name="TopPoint">50dp</dimen>
+    <dimen name="Layer">98dp</dimen>
+    <dimen name="CategoryHeight">200dp</dimen>
+    <dimen name="BoxHeight">84dp</dimen>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="horizontal"
+    android:background="@drawable/menu_list_view">
+    <com.dealoka.lib.control.imageview.RecyclingImageView
+        android:id="@+id/img_menu"
+        android:layout_width="@dimen/ImageMenu"
+        android:layout_height="@dimen/ImageMenu" />
+    <TextView
+        android:id="@+id/lbl_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="left|center_vertical"
+        style="@style/Text" />
+</LinearLayout>

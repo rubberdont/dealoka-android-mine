@@ -1,0 +1,195 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dealoka.app"
+    android:versionCode="56"
+    android:versionName="4.56.67.PRO"
+    android:installLocation="auto">
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="22" />
+    <permission android:name="com.dealoka.app.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <uses-permission android:name="com.dealoka.app.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.dealoka.app.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:largeHeap="@bool/largeHeap"
+        android:name="com.dealoka.app.DealokaApp">
+        <service android:name="com.dealoka.app.services.AppService" android:exported="false"></service>
+        <service android:name="codemagnus.com.dealogeolib.service.DealokaService"/>
+        <service android:name="com.dealoka.app.services.CheckService" android:label="@string/app_name" />
+        <receiver android:enabled="true" android:name="com.dealoka.app.receivers.BootUpReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dealoka.app.receivers.SimChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dealoka.app.receivers.CheckBroadcastReceiver" android:enabled="true" />
+        <receiver android:name="com.dealoka.app.receivers.OffersBroadcastReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.codemagnus.dealokageolib.NEW_OFFERS"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name="com.dealoka.app.Main"
+            android:configChanges="orientation"
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            android:screenOrientation="portrait">
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dealoka.app.controller.TCController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.AlertController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.QuestionController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.DualController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.activity.Forgot"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.SendMessageController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.SpecialCodeController"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.controller.PopupOffersController"
+            android:theme="@style/AppThemeDialog"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:exported="true"
+            android:name="com.dealoka.app.activity.Connect"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dealoka.app.activity.Tutorial"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.activity.Land"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.dealoka.app.activity.Category"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.activity.Gender"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.activity.ShowUp"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dealoka.app.Home"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTask"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.facebook.FacebookActivity"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+          android:label="@string/app_name" />
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:launchMode="standard" />
+        <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+        <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_api_key" />
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/analytics_global_config" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/app_name" />
+    </application>
+</manifest>

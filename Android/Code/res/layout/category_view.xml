@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dealoka="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fafafc"
+    android:baselineAligned="true"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/lay_1_1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/CategoryHeight"
+        android:layout_weight="1"
+        android:layout_margin="0.5dp"
+        android:background="@drawable/button_category"
+        android:visibility="invisible">
+        <com.dealoka.lib.control.SquareLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            dealoka:based_on="both">
+            <com.dealoka.lib.control.imageview.RecyclingImageView
+                android:id="@+id/img_category_1_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/TextLarge"
+                android:scaleType="fitXY" />
+        </com.dealoka.lib.control.SquareLayout>
+        <TextView
+            android:id="@+id/lbl_title_1_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/TextSmall"
+            android:layout_alignBottom="@+id/btn_category_1_1"
+            style="@style/Text" />
+        <Button
+            android:id="@+id/btn_category_1_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lay_1_2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/CategoryHeight"
+        android:layout_weight="1"
+        android:layout_margin="0.5dp"
+        android:background="@drawable/button_category"
+        android:visibility="invisible">
+        <com.dealoka.lib.control.SquareLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center_horizontal"
+            dealoka:based_on="both">
+            <com.dealoka.lib.control.imageview.RecyclingImageView
+                android:id="@+id/img_category_1_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/TextLarge"
+                android:scaleType="fitXY" />
+        </com.dealoka.lib.control.SquareLayout>
+        <TextView
+            android:id="@+id/lbl_title_1_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/TextSmall"
+            android:layout_alignBottom="@+id/btn_category_1_2"
+            style="@style/Text" />
+        <Button
+            android:id="@+id/btn_category_1_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent" />
+    </RelativeLayout>
+</LinearLayout>

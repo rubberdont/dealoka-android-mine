@@ -1,0 +1,17 @@
+<resources>
+	<string name="blank"></string>
+	<!-- LABEL -->
+	<string name="label_loading_title">Loading</string>
+	<string name="label_loading_message">Loading, Please wait&#8230;</string>
+	<string name="label_alert_title">Alert</string>
+	<string name="label_alert_message"></string>
+	<!-- BUTTON -->
+	<string name="button_ok">OK</string>
+	<!-- ERROR -->
+	<string name="text_err_no_network">No Network</string>
+	<!-- MESSAGE -->
+	<string name="text_msg_loading">Loading, Please wait&#8230;</string>
+	<!-- AMOUNT SIGN -->
+	<string name="text_amount_sign_dollar">$</string>
+	<string name="text_amount_sign_rupiah">Rp.</string>
+</resources>

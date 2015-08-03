@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu_list_view">
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_list_view">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.dealoka.lib.control.imageview.RecyclingImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ImageOffer"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/blank" />
+            <ImageView
+                android:id="@+id/img_expired"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ImageOffer"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_expired"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/blank"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/img_redeemed"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ImageOffer"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_redeemed"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/blank"
+                android:visibility="gone" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ImageRibbon"
+                android:layout_marginRight="30dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ImageRibbon"
+                    android:background="@drawable/bg_ribbon"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@string/blank" />
+                <TextView
+                    android:id="@+id/lbl_redeem_on"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#ffffff"
+                    style="@style/TextSub" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Layer"
+                android:layout_alignBottom="@+id/image">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bar"
+                    android:contentDescription="@string/blank" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/remove"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    style="@style/TextListTitle" />
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title"
+                    android:layout_toLeftOf="@+id/remove"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    style="@style/TextListDesc" />
+                <ImageButton
+                    android:id="@+id/remove"
+                    android:layout_width="@dimen/Layer"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/title"
+                    android:layout_alignBottom="@+id/description"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_trash"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/blank" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ImageOffer"
+            android:gravity="center_vertical"
+            android:background="@drawable/bordered_box">
+            <TextView
+                android:id="@+id/lbl_caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/text_message_delete_coupon_confirmation"
+                style="@style/Text" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_caption"
+                android:layout_marginBottom="10dp">
+                <View
+                    android:id="@+id/separator"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_centerHorizontal="true" />
+                <Button
+                    android:id="@+id/btn_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/separator"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    style="@style/ButtonYES"
+                    android:text="@string/button_yes" />
+                <Button
+                    android:id="@+id/btn_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/separator"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    style="@style/ButtonNO"
+                    android:text="@string/button_no" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ViewFlipper>
+</LinearLayout>

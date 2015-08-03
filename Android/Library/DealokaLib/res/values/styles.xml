@@ -1,0 +1,38 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppBaseTheme" parent="@android:style/Theme.Black.NoTitleBar"></style>
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+    <!-- LOADING -->
+    <style name="loading_title" parent="android:Widget.TextView">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/loading_title</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <style name="loading_message" parent="android:Widget.TextView">
+        <item name="android:textColor">#6f6f6f</item>
+        <item name="android:textSize">@dimen/loading_message</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <!-- ALERT -->
+    <style name="alert_title" parent="android:Widget.TextView">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/alert_title</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <style name="alert_message" parent="android:Widget.TextView">
+        <item name="android:textColor">#6f6f6f</item>
+        <item name="android:textSize">@dimen/alert_message</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <!--  -->
+    <style name="Button" parent="android:Widget.Button">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textSize">@dimen/text_button</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
