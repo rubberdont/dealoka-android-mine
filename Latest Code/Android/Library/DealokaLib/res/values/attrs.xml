@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="com_dealoka_lib_square_layout">
+        <attr name="based_on">
+            <enum name="both" value="0" />
+            <enum name="width" value="1" />
+            <enum name="height" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="com_dealoka_lib_amount_edit_text">
+        <attr name="sign" format="string" />
+    </declare-styleable>
+    <attr name="font_path" format="string"/>
+</resources>

@@ -1,0 +1,270 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppBaseTheme" parent="@android:style/Theme.Black.NoTitleBar"></style>
+    <style name="AppBaseThemeDialog" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowBackground">@drawable/style</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="AppThemeDialog" parent="AppBaseThemeDialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!-- EDIT TEXT -->
+    <style name="TextBox">
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:textSize">@dimen/TextEdit</item>
+        <item name="android:textColor">@color/EditText</item>
+        <item name="android:textColorHint">@color/EditTextHint</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="RedeemTextBox">
+        <item name="android:background">@drawable/redeem_text</item>
+        <item name="android:textColor">@color/EditText</item>
+        <item name="android:textSize">@dimen/TextEditRedeem</item>
+        <item name="android:inputType">text</item>
+        <item name="android:imeOptions">actionGo</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <!-- BUTTON -->
+    <style name="Button" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="android:textColor">@color/TextButton</item>
+    </style>
+    <style name="ButtonOK" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@drawable/button_ok</item>
+        <item name="android:text">@string/button_ok</item>
+        <item name="android:textColor">@color/TextButtonOK</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="ButtonYES" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@drawable/button_yes</item>
+        <item name="android:textColor">@color/TextButtonYES</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="android:text">@string/button_yes</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="ButtonNO" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@drawable/button_no</item>
+        <item name="android:textColor">@color/TextButtonNO</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="android:text">@string/button_no</item>
+        <item name="font_path">fonts/MyriadPro-BoldItalic.ttf</item>
+    </style>
+    <style name="ButtonDetail" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@drawable/button_detail</item>
+        <item name="android:textColor">@color/TextButtonDetail</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="ButtonLand" parent="android:Widget.Button">
+        <item name="android:background">@drawable/button_land</item>
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="android:textColor">@color/TextButtonLand</item>
+    </style>
+    <style name="ButtonBordered" parent="android:Widget.ImageButton">
+        <item name="android:background">@drawable/button_bordered</item>
+        <item name="android:textColor">@color/TextButtonBordered</item>
+        <item name="android:textSize">@dimen/TextButtonBordered</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="ButtonFacebook" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:drawableLeft">@drawable/ic_facebook</item>
+        <item name="android:background">@drawable/button_facebook</item>
+        <item name="android:drawablePadding">-20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textSize">@dimen/TextButtonSocialMedia</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:text">@string/button_facebook</item>
+    </style>
+    <style name="ButtonGooglePlus" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:drawableLeft">@drawable/ic_google_plus</item>
+        <item name="android:background">@drawable/button_google_plus</item>
+        <item name="android:drawablePadding">-20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textSize">@dimen/TextButtonSocialMedia</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:text">@string/button_google_plus</item>
+    </style>
+    <style name="ButtonPulldown" parent="android:Widget.Button">
+        <item name="android:drawableRight">@drawable/ic_down</item>
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="android:textColor">@color/TextButtonPulldown</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="ButtonSendMessage" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@color/ButtonSendMessage</item>
+        <item name="android:text">@string/button_send_message</item>
+        <item name="android:textColor">@color/TextButtonSendMessage</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="ButtonShare" parent="android:Widget.Button">
+        <item name="android:height">@dimen/Button</item>
+        <item name="android:background">@color/ButtonShare</item>
+        <item name="android:text">@string/button_share</item>
+        <item name="android:textColor">@color/TextButtonShare</item>
+        <item name="android:textSize">@dimen/TextButton</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <!-- LIST -->
+    <style name="DefaultListView">
+        <item name="android:background">@drawable/tile</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:listSelector">@drawable/default_list_view</item>
+        <item name="android:cacheColorHint">@color/transparent</item>
+    </style>
+    <style name="TextDefaultListView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/TextList</item>
+        <item name="android:textSize">@dimen/TextList</item>
+    </style>
+    <style name="MenuListView">
+        <item name="android:background">#f3f3f3</item>
+        <item name="android:dividerHeight">0.5dp</item>
+        <item name="android:listSelector">@drawable/default_list_view</item>
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+    <!-- TEXT -->
+    <style name="Text">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/Text</item>
+    </style>
+    <style name="TextLarge">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/TextLarge</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextWhite">
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/Text</item>
+    </style>
+    <style name="TextTitle">
+        <item name="android:textColor">@color/TextTitle</item>
+        <item name="android:textSize">@dimen/TextTitle</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextTopBar">
+        <item name="android:textColor">@color/TextTopBar</item>
+        <item name="android:textSize">@dimen/TextTopBar</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextHeader">
+        <item name="android:textColor">@color/TextHeader</item>
+        <item name="android:textSize">@dimen/TextHeader</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextSub">
+        <item name="android:textColor">@color/TextSub</item>
+        <item name="android:textSize">@dimen/TextSub</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextTab">
+        <item name="android:textColor">@color/TextTab</item>
+        <item name="android:textSize">@dimen/TextTab</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+    <style name="TextWalletPoint">
+        <item name="android:background">@drawable/wallet_point</item>
+        <item name="android:textColor">@color/TextWalletPoint</item>
+        <item name="android:textSize">@dimen/TextWalletPoint</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextLoading">
+        <item name="android:textColor">@color/TextLoading</item>
+        <item name="android:textSize">@dimen/TextLoading</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:text">@string/text_label_loading</item>
+        <item name="font_path">fonts/MyriadPro-BoldItalic.ttf</item>
+    </style>
+    <style name="TextListTitle" parent="android:Widget.TextView">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/TextListTitle</item>
+        <item name="android:textSize">@dimen/TextListTitle</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextListDesc" parent="android:Widget.TextView">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/TextListDesc</item>
+        <item name="android:textSize">@dimen/TextListDesc</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextDistance">
+        <item name="android:textColor">@color/Base</item>
+        <item name="android:textSize">@dimen/TextDistance</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextFeature">
+        <item name="android:padding">5dp</item>
+        <item name="android:background">#000000</item>
+        <item name="android:text">@string/text_label_top_offers</item>
+        <item name="android:textColor">@color/TextFeature</item>
+        <item name="android:textSize">@dimen/TextFeature</item>
+        <item name="font_path">fonts/MyriadPro-BoldItalic.ttf</item>
+    </style>
+    <style name="TextMenuHeader">
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@color/TextMenuHeader</item>
+        <item name="android:textSize">@dimen/TextMenuHeader</item>
+        <item name="font_path">fonts/AguafinaScript-Regular.ttf</item>
+    </style>
+    <style name="TextMenuList">
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/TextMenuList</item>
+        <item name="android:textSize">@dimen/Text</item>
+    </style>
+    <style name="TextRedeem">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/TextRedeem</item>
+        <item name="android:textSize">@dimen/TextRedeem</item>
+        <item name="font_path">fonts/MyriadPro-BoldItalic.ttf</item>
+    </style>
+    <style name="TextPopup">
+        <item name="android:background">@drawable/popup_button</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:gravity">center</item>
+        <item name="font_path">fonts/MyriadPro-BoldItalic.ttf</item>
+    </style>
+</resources>

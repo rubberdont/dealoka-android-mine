@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">Dealoka</string>
+    <string name="facebook_app_id">814402635241510</string>
+    <string name="google_api_key">AIzaSyCHQ32C6hsGjoNs3-NQGwH7jL4oYN1UfY8</string>
+    
+    <string name="title_register">Sign up</string>
+    <string name="title_login">Log in</string>
+    <string name="title_age">Pilih Umur</string>
+    <string name="title_gender">Pilih Jenis Kelamin</string>
+    <string name="title_category">Pilih Kategori</string>
+    <string name="title_home">Home</string>
+    <string name="title_menu">Menu</string>
+    <string name="title_offers">Voucher</string>
+    <string name="title_wallet">Dompet</string>
+    <string name="title_settings">Pengaturan</string>
+    <string name="title_about">About</string>
+    <string name="title_redeem">Redeem Voucher</string>
+    <string name="title_map">Peta Petunjuk</string>
+    <string name="title_switch_user">Ganti Pemakai</string>
+    <string name="title_forgot">Lupa Password</string>
+    <string name="title_dual">Dual SIM</string>
+    <string name="title_review">Review</string>
+    <string name="title_sdk_special_code">Support Code</string>
+    <string name="title_special_code">Snap and Deal</string>
+    
+    <string name="button_ok">OK</string>
+    <string name="button_yes">YA</string>
+    <string name="button_send">Kirim</string>
+    <string name="button_no">TIDAK</string>
+    <string name="button_switch">Ganti</string>
+    <string name="button_cancel">Batal</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="button_register">Sign up</string>
+    <string name="button_login">Log in</string>
+    <string name="button_facebook">Log in via facebook</string>
+    <string name="button_google_plus">Log in via Google+</string>
+    <string name="button_forgot_password">Lupa Password?</string>
+    <string name="button_gender">Jenis kelamin</string>
+    <string name="button_birthdate">Tanggal lahir</string>
+    <string name="button_category">Kategori favorit anda</string>
+    <string name="button_following">Following</string>
+    <string name="button_map">Map</string>
+    <string name="button_click_here">Click Here!</string>
+    <string name="button_valid">Redeem PIN</string>
+    <string name="button_download">Get Voucher (FREE)</string>
+    <string name="button_validate">Redeem</string>
+    <string name="button_description">Deskripsi</string>
+    <string name="button_condition">Syarat \u0026 Ketentuan</string>
+    <string name="button_save">Simpan</string>
+    <string name="button_rate_now">Beri rating</string>
+    <string name="button_rate_later">Mungkin nanti</string>
+    <string name="button_tc"><u>Saya setuju dengan Ketentuan Privasi dan Syarat Penggunaan</u></string>
+    <string name="button_send_message">Bantu saya donk!</string>
+    <string name="button_share">Share Voucher ini</string>
+    <string name="button_about_tc">Ketentuan Privasi dan Syarat Penggunaan</string>
+    <string name="button_apply">Pakai</string>
+    <string name="button_tutorial">Cara penggunaan</string>
+    <string name="button_start">Start Dealoka</string>
+    
+    <string name="hint_username">Nama Lengkap</string>
+    <string name="hint_email">E-Mail</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_conf_password">Konfirmasi Password</string>
+    <string name="hint_phone_number">No. Telp</string>
+    <string name="hint_message">Isi berita</string>
+    <string name="hint_sdk_special_code">Kode Support</string>
+    <string name="hint_special_code">Kode Promo</string>
+    
+    <!-- Text Label -->
+    <string name="text_label_loading">Sedang memproses&#8230;</string>
+    <string name="text_label_downloaded">Terpakai</string>
+    <string name="text_label_available">Tersedia</string>
+    <string name="text_label_expiry">Kadaluarsa</string>
+    <string name="text_label_scan_via_qrcode">Scan QR Code yang diberikan merchant dengan menekan gambar di bawah ini</string>
+    <string name="text_label_or">ATAU</string>
+    <string name="text_label_top_offers">Rekomendasi kami</string>
+    <string name="text_label_description">Deskripsi</string>
+    <string name="text_label_condition">Ketentuan Penggunaan</string>
+    <string name="text_label_expired_on">Exp: </string>
+    <string name="text_label_expired">Sudah kadaluarsa</string>
+    <string name="text_label_redeemed">Sudah di-redeem</string>
+    <string name="text_label_version">Versi: </string>
+    <string name="text_label_user_email">Login sebagai: </string>
+    <string name="text_label_email_header">Email kami di: </string>
+    <string name="text_label_powered">Didukung oleh: </string>
+    <string name="text_label_near_address">Alamat terdekat: </string>
+    <string name="text_label_day">Hari</string>
+    <string name="text_label_share">Share ke&#8230;</string>
+    <string name="text_label_email">hello@dealoka.com</string>
+    <string name="text_label_dual_caption">Kami mendeteksi anda menggunakan dua SIM Card, Silahkan pilih SIM Card yang hendak anda gunakan dalam aplikasi ini</string>
+    <string name="text_label_menu_dual_caption">Silahkan pilih SIM Card yang hendak anda gunakan dalam aplikasi ini</string>
+    <string name="text_label_send_message">Isikan Email dan Nomor Ponsel yang dapat kami hubungi untuk membalas pesan Anda.</string>
+    <string name="text_label_sdk_special_code">Masukkan kode support</string>
+    <string name="text_label_special_code">Masukkan kode promo</string>
+    <string name="text_label_review">Tulis Review</string>
+    <string name="text_label_review_content">Tulis review anda untuk voucher %s</string>
+    <string name="text_label_scan_special_qrcode">Klik tombol dibawah ini</string>
+    
+    <!-- Text Error -->
+    <string name="text_err_system">Sistem tidak berhasil tersambung, silahkan untuk mencoba lagi</string>
+    <string name="text_err_no_user_location">Lokasi anda tidak bisa didapatkan</string>
+    <string name="text_err_no_data">Tidak ada data</string>
+    <string name="text_err_connection_lost">Koneksi internet terputus</string>
+    <string name="text_err_connection_timeout">Terdapat masalah dengan koneksi</string>
+    <string name="text_err_connection_bad">Koneksi internet sedang lambat, harap untuk mencoba lagi&#8230;</string>
+    <string name="text_err_no_available">Voucher belum tersedia, silahkan membaca deskripsi Voucher untuk waktu ketersediaan kembali</string>
+    <string name="text_err_no_imsi">Voucher ini memerlukan validitas SIM Card anda</string>
+    <string name="text_err_username_blank">Nama lengkap harus diisi terlebih dahulu!</string>
+    <string name="text_err_email_blank">E-Mail harus diisi terlebih dahulu!</string>
+    <string name="text_err_password_blank">Password harus diisi terlebih dahulu!</string>
+    <string name="text_err_conf_password_not_match">Konfirmasi Password tidak sama!</string>
+    <string name="text_err_gender_blank">Jenis Kelamin harus dipilih terlebih dahulu!</string>
+    <string name="text_err_age_blank">Tanggal lahir harus dipilih terlebih dahulu!</string>
+    <string name="text_err_category_blank">Kategori harus dipilih terlebih dahulu!</string>
+    <string name="text_err_login_failed">E-Mail atau Password tidak sesuai</string>
+    <string name="text_err_no_version">Tidak ada nomor versi aplikasi</string>
+    <string name="text_err_facebook">Terdapat masalah koneksi dengan facebook</string>
+    <string name="text_err_google_plus">Terdapat masalah koneksi dengan Google Plus</string>
+    <string name="text_err_tc_unchecked">Ketentuan Privasi dan Syarat Penggunaan harus di setujui terlebih dahulu</string>
+    <string name="text_err_message">Pesan anda gagal terkirim</string>
+    
+    <!-- Text Message -->
+    <string name="text_message_exit">Tekan tombol back sekali lagi untuk keluar</string>
+    <string name="text_message_download_confirmation">Dengan menekan tombol YA, anda telah membaca dan setuju dengan \'Syarat \u0026 Ketentuan\'</string>
+    <string name="text_message_showup_confirmation">Setelah anda keluar dari halaman ini, anda tidak dapat melakukan redeem Voucher ini kembali</string>
+    <string name="text_msg_loading">Sedang dalam proses&#8230;</string>
+    <string name="text_message_redeem_success">Berhasil! Voucher akan masuk ke dalam Dompet dalam waktu max. 10 menit</string>
+    <string name="text_message_already_download">Voucher ini sudah di download. Periksa \'Wallet\' anda untuk Voucher ini</string>
+    <string name="text_message_redeem_special_coupon_failed">Maaf, anda tidak memenuhi syarat untuk mendapatkan Voucher ini</string>
+    <string name="text_message_provider_disabled">Jaringan GPS \\ Network tidak dapat diakses, harap dihidupkan terlebih dahulu.</string>
+    <string name="text_message_connection_lost">Terdapat masalah dengan koneksi, tekan OK untuk mencoba lagi</string>
+    <string name="text_message_restart">Aplikasi ini akan dimati-hidupkan untuk melakukan validasi akun anda</string>
+    <string name="text_message_special_no_data">Saat ini anda belum memiliki notifikasi spesial</string>
+    <string name="text_message_title_share">Promo Dealoka</string>
+    <string name="text_message_share">%s, Download FREE http://promo.dealoka.com</string>
+    <string name="text_message_wrong_code">PIN \\ QR Code anda salah</string>
+    <string name="text_message_title_rate">Beri Rating Dealoka</string>
+    <string name="text_message_rate">Anda suka dengan Dealoka? Dukung kami dengan memberikan rating</string>
+    <string name="text_message_delete_coupon_confirmation">Apakah anda yakin untuk menghapus Voucher ini dari dompet anda?</string>
+    <string name="text_message_sent">Pesan anda sudah terkirim</string>
+    <string name="text_message_coming_soon">Coming Soon</string>
+    <string name="text_message_review">Tulis review anda</string>
+    <string name="text_message_single_simcard">Hanya terdeteksi 1 SIM Card (%s)</string>
+    <string name="text_message_no_simcard">Tidak terdeteksi SIM Card</string>
+    
+    <string name="menu_points">Dealoka Points</string>
+    <string name="menu_sim_card">Pengaturan SIM Card</string>
+    <string name="menu_sdk_special_code">Support Code</string>
+    <string name="menu_rate">Rate us on the Play Store</string>
+    <string name="menu_support">Support</string>
+    <string name="menu_about">About</string>
+    <string name="menu_tutorial">Cara penggunaan</string>
+    
+    <string name="tab_offers">Voucher</string>
+    <string name="tab_wallet">Dompet</string>
+    
+    <!-- Instruct -->
+    <string name="instruct_pin">Masukkan PIN Merchant</string>
+    <string name="instruct_ask_help">Minta bantuan pada staff untuk melakukan redeem</string>
+    <string name="instruct_congrate">Selamat!</string>
+    <string name="instruct_put_finger">Letakkan jari anda dibawah ini di depan merchant untuk menunjukkan kode validasi</string>
+    <string name="instruct_success">Anda telah berhasil melakukan redeem untuk Voucher</string>
+    <string name="instruct_code">Kode Voucher: </string>
+    <string name="close">Close</string>
+    <string name="get_coupon">Get Coupon</string>
+</resources>

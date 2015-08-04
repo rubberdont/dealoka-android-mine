@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu_list_view">
+    <com.dealoka.lib.control.imageview.RecyclingImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ImageOffer"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/blank" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/Layer"
+        android:layout_alignBottom="@+id/image">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bar"
+            android:contentDescription="@string/blank" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            style="@style/TextListTitle" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_toLeftOf="@+id/distance"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/ImageDistanceWidth"
+            style="@style/TextListDesc" />
+        <ImageView
+            android:layout_width="@dimen/ImageDistanceWidth"
+            android:layout_height="@dimen/ImageDistanceHeight"
+            android:layout_toLeftOf="@+id/distance"
+            android:layout_alignTop="@+id/distance"
+            android:background="@drawable/ic_distance"
+            android:contentDescription="@string/blank" />
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/description"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                style="@style/TextDistance" />
+         </RelativeLayout>
+         <LinearLayout
+             android:id="@+id/lay_special"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/image"
+             android:orientation="vertical"
+             android:visibility="gone"></LinearLayout>
+</RelativeLayout>

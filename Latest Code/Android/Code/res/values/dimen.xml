@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="TopBar">46dp</dimen>
+    <dimen name="LeftTopBar">100dp</dimen>
+    <dimen name="TabBar">46dp</dimen>
+    
+    <dimen name="ButtonTopBar">30dp</dimen>
+    <dimen name="Button">46dp</dimen>
+    <dimen name="ButtonTutorialWidth">100dp</dimen>
+    <dimen name="ButtonTutorialHeight">30dp</dimen>
+    <dimen name="ButtonQrCode">150dp</dimen>
+    
+    <dimen name="Text">16sp</dimen>
+    <dimen name="TextSmall">11sp</dimen>
+    <dimen name="TextTitle">22sp</dimen>
+    <dimen name="TextTopBar">18sp</dimen>
+    <dimen name="TextHeader">16sp</dimen>
+    <dimen name="TextSub">14sp</dimen>
+    <dimen name="TextButton">16sp</dimen>
+    <dimen name="TextButtonBordered">16sp</dimen>
+    <dimen name="TextButtonSocialMedia">16sp</dimen>
+    <dimen name="TextList">16sp</dimen>
+    <dimen name="TextTab">11sp</dimen>
+    <dimen name="TextEdit">16sp</dimen>
+    <dimen name="TextWalletPoint">12sp</dimen>
+    <dimen name="TextLoading">16sp</dimen>
+    <dimen name="TextListTitle">20sp</dimen>
+    <dimen name="TextListDesc">14sp</dimen>
+    <dimen name="TextDistance">14sp</dimen>
+    <dimen name="TextFeature">12sp</dimen>
+    <dimen name="TextLarge">28sp</dimen>
+    <dimen name="TextMenuHeader">20sp</dimen>
+    <dimen name="TextRedeem">16sp</dimen>
+    <dimen name="TextEditRedeem">18sp</dimen>
+    
+    <dimen name="ImageOffer">240dp</dimen>
+    <dimen name="ImageDistanceWidth">10dp</dimen>
+    <dimen name="ImageDistanceHeight">15dp</dimen>
+    <dimen name="ImageRibbon">30dp</dimen>
+    <dimen name="ImageMenu">30dp</dimen>
+    
+    <dimen name="TopPoint">25dp</dimen>
+    <dimen name="Layer">78dp</dimen>
+    <dimen name="CategoryHeight">150dp</dimen>
+    <dimen name="CategoryBottomMargin">20dp</dimen>
+    <dimen name="ImageCategoryMargin">30dp</dimen>
+    <dimen name="BoxHeight">80dp</dimen>
+    <dimen name="HomeBottomMargin">60dp</dimen>
+    <dimen name="ButtonSpecialCode">50dp</dimen>
+    <dimen name="SpecialCodeMargin">5dp</dimen>
+</resources>

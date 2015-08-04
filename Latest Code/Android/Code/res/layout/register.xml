@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_register_login"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/TopBar"
+        android:background="@drawable/top_bar">
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/title_register"
+            style="@style/TextTopBar" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/lay_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_box"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:orientation="vertical">
+	            <EditText
+			        android:id="@+id/txt_username"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="5dp"
+			        android:hint="@string/hint_username"
+			        style="@style/TextBox"
+			        android:inputType="text" />
+			    <EditText
+			        android:id="@+id/txt_email"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:hint="@string/hint_email"
+			        style="@style/TextBox"
+			        android:inputType="textEmailAddress" />
+			    <EditText
+			        android:id="@+id/txt_password"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:hint="@string/hint_password"
+			        style="@style/TextBox" />
+			    <EditText
+			        android:id="@+id/txt_conf_password"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:hint="@string/hint_conf_password"
+			        style="@style/TextBox" />
+			    <Button
+			        android:id="@+id/btn_gender"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:text="@string/button_gender"
+			        style="@style/ButtonPulldown" />
+			    <Button
+			        android:id="@+id/btn_birthdate"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:text="@string/button_birthdate"
+			        style="@style/ButtonPulldown" />
+			    <Button
+			        android:id="@+id/btn_category"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:layout_marginTop="10dp"
+			        android:text="@string/button_category"
+			        style="@style/ButtonPulldown" />
+			    <LinearLayout
+			        android:id="@+id/lay_tc"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="5dp"
+			        android:orientation="horizontal"
+			        android:gravity="center_vertical">
+			        <CheckBox
+			            android:id="@+id/chk_tc"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content" />
+			        <Button
+			            android:id="@+id/btn_tc"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="@string/button_tc"
+			            android:background="@color/transparent"
+			            android:gravity="left" />
+			    </LinearLayout>
+	        </LinearLayout>
+	    </ScrollView>
+	    <Button
+	        android:id="@+id/btn_register"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="10dp"
+	        android:text="@string/button_register"
+	        style="@style/Button" />
+    </LinearLayout>
+</LinearLayout>

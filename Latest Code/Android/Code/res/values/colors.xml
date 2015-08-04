@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Splash">#32393e</color>
+    <color name="Background">#2f2e2e</color>
+    <color name="Base">#f26721</color>
+    <color name="Foreground">#ffffff</color>
+    <color name="Frame">#242021</color>
+    <color name="Line">#b2b1b1</color>
+    <!-- Text -->
+    <color name="TextTitle">#f26721</color>
+    <color name="TextTopBar">#ffffff</color>
+    <color name="TextHeader">#ffffff</color>
+    <color name="TextSub">#555555</color>
+    <color name="TextTab">#ffffff</color>
+    <color name="TextWalletPoint">#ffffff</color>
+    <color name="TextLoading">#ffffff</color>
+    <color name="TextListTitle">#ffffff</color>
+    <color name="TextListDesc">#ffffff</color>
+    <color name="TextFeature">#ffffff</color>
+    <color name="TextMenuHeader">#ffffff</color>
+    <color name="TextRedeem">#a4008b</color>
+    <color name="Translusent">#CC242021</color>
+    <!-- Tab Bar -->
+    <color name="TabHover">#bc5f31</color>
+    <!-- List -->
+    <color name="ListBackground">#ffffff</color>
+    <color name="ListHover">#f26721</color>
+    <color name="ListDivider">#eeeeee</color>
+    <color name="TextList">#555555</color>
+    <color name="MenuListBackground">#f3f3f3</color>
+    <color name="MenuListHover">#f4f4f4</color>
+    <color name="MenuListDivider">#b8b8b8</color>
+    <color name="TextMenuList">#b8b8b8</color>
+    <!-- Category -->
+    <color name="Category">#f0f0f0</color>
+    <color name="CategoryText">#000000</color>
+    <!-- Button -->
+    <color name="TextButton">#ffffff</color>
+    <color name="TextButtonPulldown">#828282</color>
+    <!-- Button OK -->
+    <color name="ButtonOK">#f26721</color>
+    <color name="TextButtonOK">#ffffff</color>
+    <!-- Button YES -->
+    <color name="ButtonYES">#266d00</color>
+    <color name="TextButtonYES">#ffffff</color>
+    <!-- Button NO -->
+    <color name="ButtonNO">#6d0000</color>
+    <color name="TextButtonNO">#ffffff</color>
+    <!-- Button Detail -->
+    <color name="ButtonDetail">#00930a</color>
+    <color name="TextButtonDetail">#ffffff</color>
+    <!-- Button Bordered -->
+    <color name="ButtonBordered">#ffffff</color>
+    <color name="ButtonBorderedHover">#555555</color>
+    <color name="TextButtonBordered">#f26721</color>
+    <!-- Button Land -->
+    <color name="ButtonLand">#000000</color>
+    <color name="TextButtonLand">#ffffff</color>
+    <!-- Button Send Message -->
+    <color name="ButtonSendMessage">#b43123</color>
+    <color name="TextButtonSendMessage">#ffffff</color>
+    <!-- Button Share -->
+    <color name="ButtonShare">#73acbd</color>
+    <color name="TextButtonShare">#ffffff</color>
+    <!-- Edit Text -->
+    <color name="EditText">#000000</color>
+    <color name="EditTextHint">#828282</color>
+</resources>

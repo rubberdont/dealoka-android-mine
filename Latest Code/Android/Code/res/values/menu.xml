@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu">
+        <item>@string/menu_points</item>
+        <item>@string/menu_sim_card</item>
+        <item>@string/menu_sdk_special_code</item>
+        <item>@string/menu_rate</item>
+        <item>@string/menu_support</item>
+        <item>@string/menu_about</item>
+        <item>@string/menu_tutorial</item>
+    </string-array>
+    <array name="menu_icon">
+        <item>@drawable/ic_points</item>
+        <item>@drawable/ic_sim_card</item>
+        <item>@drawable/ic_sdk_special_code</item>
+        <item>@drawable/ic_rate</item>
+        <item>@drawable/ic_support</item>
+        <item>@drawable/ic_about</item>
+        <item>@drawable/ic_tutorial</item>
+    </array>
+</resources>

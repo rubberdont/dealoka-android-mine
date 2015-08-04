@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tutorial_title">
+        <item>Langkah 1</item>
+        <item>Langkah 2</item>
+        <item>Langkah 3</item>
+        <item>Langkah 4</item>
+    </string-array>
+</resources>

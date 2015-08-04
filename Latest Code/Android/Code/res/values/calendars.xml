@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="day_name">
+        <item></item>
+        <item>MIG</item>
+        <item>SEN</item>
+        <item>SEL</item>
+        <item>RAB</item>
+        <item>KAM</item>
+        <item>JUM</item>
+        <item>SAB</item>
+    </string-array>
+    <string-array name="day_fullname">
+        <item></item>
+        <item>Minggu</item>
+        <item>Senin</item>
+        <item>Selasa</item>
+        <item>Rabu</item>
+        <item>Kamis</item>
+        <item>Jumat</item>
+        <item>Sabtu</item>
+    </string-array>
+    <string-array name="month_name">
+        <item></item>
+        <item>Jan</item>
+        <item>Peb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>Mei</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Ags</item>
+        <item>Sep</item>
+        <item>Okt</item>
+        <item>Nop</item>
+        <item>Des</item>
+    </string-array>
+    <string-array name="month_fullname">
+        <item></item>
+        <item>Januari</item>
+        <item>Pebuari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>Nopember</item>
+        <item>Desember</item>
+    </string-array>
+</resources>
