@@ -60,17 +60,17 @@ public class PopupOffersController extends FragmentActivity{
 	public void updatePopupList(Intent intent){
 		ArrayList<OfferGeo> newOffers = intent.getParcelableArrayListExtra(DealokaService.NEW_OFFERS);
 		if(popupOffers != null){
-			for(OfferGeo offer : popupOffers){
-				for (OfferGeo newOffer : newOffers) {
-					if(!offer.id.equals(newOffer.id))
-						popupOffers.add(newOffer);
-				}
+			for(int x = 0; x < newOffers.size(); x++){
+				OfferGeo newOffer = newOffers.get(x);
+				if(!popupOffers.contains(newOffer))
+					popupOffers.add(newOffer);
 			}
 		}else{
 			popupOffers = newOffers;
 		}
 		if(popupListAdapter != null)
 			popupListAdapter.notifyDataSetChanged();
+		
 		clearSavedOffers();
 	}
 	private void clearSavedOffers(){
@@ -200,6 +200,11 @@ public class PopupOffersController extends FragmentActivity{
 					}
 				}
 			});
+		}
+		@Override
+		public void onDestroyView() {
+			popUpList.setVisibility(View.VISIBLE);
+			super.onDestroyView();
 		}
 	}
 }
