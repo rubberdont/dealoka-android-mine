@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -143,7 +144,7 @@ public class PopupOffersController extends FragmentActivity{
 	public class PopupOffer extends Fragment{
 		public static final String TAG = "PopupOffer";
 		private TextView merchantName, offerDesc, offerAddress, offerDistance;
-		private ImageView offerImage;
+		private ImageView offerImage, mapImage;
 		private TextView closeButton, moreInfoButton;
 		private OfferGeo offer;
 		@Override
@@ -161,6 +162,7 @@ public class PopupOffersController extends FragmentActivity{
 			offerDistance		= (TextView) view.findViewById(R.id.offer_distance);
 			closeButton			= (TextView) view.findViewById(R.id.close_button);
 			moreInfoButton		= (TextView) view.findViewById(R.id.more_info_button);
+			mapImage			= (ImageView) view.findViewById(R.id.map_image);
 		}
 		@Override
 		public void onActivityCreated(Bundle savedInstanceState) {
@@ -170,8 +172,15 @@ public class PopupOffersController extends FragmentActivity{
 			String image_url = offer.c_offer_rec.image.replace("SIZEREQ_", "og");
 			image_url = offer.image_prefix + image_url;
 			String description = offer.c_offer_rec.name;
+			String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=";
+			mapUrl += offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
+			mapUrl += "&zoom=15&size=400x150&scale=2&maptype=roadmap";
+			mapUrl += "&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600|" + offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
 			ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
+			ImageLoader.getInstance().displayImage(mapUrl, mapImage, GlobalController.getOptionWithNoImage());
+			Log.e("MAP URL", mapUrl);
 			offerDesc.setText(description);
+			offerDesc.setSelected(true);
 			offerAddress.setText(offer.address);
 			offerDistance.setText((offer.distance / 1000) + "km");
 			setEventListener();

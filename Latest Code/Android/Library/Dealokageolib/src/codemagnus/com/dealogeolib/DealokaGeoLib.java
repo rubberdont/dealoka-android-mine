@@ -78,7 +78,6 @@ public class DealokaGeoLib {
             dealokaDataListener.onWifiRequestResult(aWifi);
         }
     };
-
     private ServiceConnection serviceConn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -90,7 +89,6 @@ public class DealokaGeoLib {
 
         }
     };
-
     private Runnable bindRunnable = new Runnable() {
         @Override
         public void run() {
@@ -105,7 +103,6 @@ public class DealokaGeoLib {
             }
         }
     };
-
     public static DealokaGeoLib getInstance(){
         if(instance == null){
             synchronized (DealokaGeoLib.class){
@@ -116,10 +113,8 @@ public class DealokaGeoLib {
 
         return instance;
     }
-
     public DealokaGeoLib() {
     }
-
     public synchronized void init(GeoConfiguration configuration){
         if(configuration == null)
             throw new ExceptionInInitializerError(CONFIGURATION_ISNULL);
@@ -138,45 +133,40 @@ public class DealokaGeoLib {
 
         mHandler.post(bindRunnable);
     }
-
     private void startService(){
         Intent serviceIntent = new Intent(context, DealokaService.class);
         context.startService(serviceIntent);
     }
-
     private void bindService(Context context){
         Intent serviceConnIntent = new Intent(context, DealokaService.class);
         context.bindService(serviceConnIntent, serviceConn, Context.BIND_AUTO_CREATE);
     }
-
     public void startDetection(DealokaDataListener newListener){
         this.dealokaDataListener   = newListener;
         mHandler.postDelayed(detectorRunnable, 1500);
     }
-
+    public void setEnableSDKcore(Context context, boolean isEnable) {
+    	this.sharedPreferences  = context.getSharedPreferences(DealokaService.BASEURL, Context.MODE_PRIVATE);
+    	this.sharedPreferences.edit().putBoolean(DealokaService.ENABLE_REQUEST, isEnable).apply();
+	}
     public void onStop(){
         context.unbindService(serviceConn);
     }
-
     public void setNotificationListener(NotificationMessageListener newListener){
         NotificationReceiver.setOnNewPushListener(newListener);
     }
-
     public List<WifiObject> getLastWifis(){
         if(dService != null){
            return dService.getmCurrentWifis();
         }
         return null;
     }
-
-
     public static String getRANDOMSESSION(){
         if(RANDOMSESSION.equals("")) {
             RANDOMSESSION =  new SessionIdentifierGenerator().nextSessionId();
         }
         return RANDOMSESSION;
     }
-
     public static final class SessionIdentifierGenerator {
         @SuppressLint("TrulyRandom")
 		private SecureRandom random = new SecureRandom();
@@ -184,9 +174,6 @@ public class DealokaGeoLib {
             return new BigInteger(130, random).toString(32);
         }
     }
-
-    
-
     public Location getLastKnownLocation(){
         return this.lastKnownLocation;
     }

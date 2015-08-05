@@ -33,8 +33,9 @@ import codemagnus.com.dealogeolib.wifi.WifiObject;
 public class DealokaService extends Service{
     private Context context;
 
-    //Tag for shared pref of baseUrl
+    //Tag for shared preference
     public static final String BASEURL = "baseURL";
+    public static final String ENABLE_REQUEST = "enableRequest";
 
     public static final String OFFERS_FROM_TOWER = "com.codemagnus.dealokageolib.NEW_OFFERS";
     public static final String NEW_OFFERS = "new_offers";
@@ -57,7 +58,7 @@ public class DealokaService extends Service{
     private Timer towerReqTimer;
     private Timer wifiReqTimer;
 
-
+    private boolean canGetOffers;
     @Override
     public IBinder onBind(Intent intent) {
         return new ServiceBinder();
@@ -72,6 +73,7 @@ public class DealokaService extends Service{
 
         sharedPreferences = context.getSharedPreferences(BASEURL, MODE_PRIVATE);
         baseUrl         = sharedPreferences.getString(BASEURL, "");
+        canGetOffers	= sharedPreferences.getBoolean(ENABLE_REQUEST, true);
         setUpTowerListener();
         setUpWifiListener();
     }
@@ -209,7 +211,9 @@ public class DealokaService extends Service{
     }
 
     private void getOffers(final Tower tower){
-
+    	if(!canGetOffers){
+        	return;
+        }
         if(towerReqTimer != null){
             towerReqTimer.cancel();
         }
@@ -252,7 +256,9 @@ public class DealokaService extends Service{
     }
 
     private void getWifiOffers(final List<WifiObject> wifiObjects){
-
+    	if(!canGetOffers){
+        	return;
+        }
         if(wifiReqTimer != null){
             wifiReqTimer.cancel();
         }
