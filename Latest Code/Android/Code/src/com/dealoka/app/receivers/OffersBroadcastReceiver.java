@@ -18,16 +18,16 @@ import com.dealoka.lib.General;
 
 public class OffersBroadcastReceiver  extends BroadcastReceiver{
 	public static final String TAG = "OffersBroadcastReceiver";
-	public static JSONArray savedOfferArray = new JSONArray();
 	@Override
 	public void onReceive(Context context, Intent intent) {
 	        try {
+	        	JSONArray savedOfferArray = new JSONArray();
 	        	String offers = intent.getExtras().getString(DealokaService.NEW_OFFERS);
 	        	JSONArray temp = new JSONArray(offers);
-	        	storeOffers(context, temp);
+	        	storeOffers(savedOfferArray, temp);
 	        	OfferGeo offerInfo = new OfferGeo(General.TEXT_BLANK, temp.getString(0));
 	        	Intent listIntent = new Intent(context, PopupOffersController.class);
-	    		listIntent.putParcelableArrayListExtra(DealokaService.NEW_OFFERS, broadcastOffers());
+	    		listIntent.putParcelableArrayListExtra(DealokaService.NEW_OFFERS, broadcastOffers(savedOfferArray));
 	    		if(!PopupOffersController.popupIsActive){
 	    			GlobalController.sendOffersNotification(context, listIntent, offerInfo);
 	    		}else{
@@ -35,12 +35,12 @@ public class OffersBroadcastReceiver  extends BroadcastReceiver{
 	    		}
 			} catch (JSONException e) {e.printStackTrace();}
 	}
-	private void storeOffers(Context context, JSONArray temp) throws JSONException{
+	private void storeOffers(JSONArray offers, JSONArray temp) throws JSONException{
 		for (int i = 0; i < temp.length(); i++) {
-			savedOfferArray.put(temp.getJSONObject(i));
+			offers.put(temp.getJSONObject(i));
 		}
 	}
-	private ArrayList<OfferGeo> broadcastOffers() throws JSONException{
+	private ArrayList<OfferGeo> broadcastOffers(JSONArray savedOfferArray) throws JSONException{
 		ArrayList<OfferGeo> offersList = new ArrayList<OfferGeo>();
 		for (int i = 0; i < savedOfferArray.length(); i++) {
 			JSONObject json = savedOfferArray.getJSONObject(i);

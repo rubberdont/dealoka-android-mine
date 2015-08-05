@@ -13,38 +13,59 @@
 
         <TextView
             android:id="@+id/merchant_name"
+            style="@style/TextListTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/popup_title_background"
             android:padding="5dp"
+            android:shadowColor="@color/Translusent"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="#FFF" />
 
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/merchant_name"
+            android:background="#bb410c" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/merchant_name"
-            android:orientation="horizontal"
-            android:padding="5dp" >
+            android:orientation="vertical"
+            android:layout_marginTop="1dp" >
 
             <ImageView
                 android:id="@+id/offer_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/ic_launcher" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@drawable/bar" />
+
             <TextView
                 android:id="@+id/offer_desc"
+                style="@style/TextListTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#000" />
-        </LinearLayout>
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/ImageDistanceWidth"
+                android:layout_marginTop="3dp"
+                android:background="@color/transparent" />
+        </FrameLayout>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -15,11 +15,22 @@
 
         <TextView
             android:id="@+id/merchant_name"
+            style="@style/TextListTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/popup_title_background"
             android:padding="5dp"
+            android:shadowColor="@color/Translusent"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/merchant_name"
+            android:background="#bb410c" />
 
         <FrameLayout
             android:id="@+id/info_container"
@@ -50,7 +61,8 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="@dimen/ImageDistanceWidth"
-                android:layout_marginTop="3dp" />
+                android:layout_marginTop="3dp"
+                android:background="@color/transparent" />
         </FrameLayout>
 
         <LinearLayout
@@ -62,6 +74,7 @@
 
             <TextView
                 android:id="@+id/offer_address"
+                style="@style/TextNormal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -86,6 +99,7 @@
 
                 <TextView
                     android:id="@+id/offer_distance"
+                    style="@style/TextNormal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="2dp"
@@ -100,9 +114,9 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_below="@+id/offer_add_info"
-            android:scaleType="centerCrop"
             android:layout_marginTop="1dp"
-            android:contentDescription="@string/blank" />
+            android:contentDescription="@string/blank"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"

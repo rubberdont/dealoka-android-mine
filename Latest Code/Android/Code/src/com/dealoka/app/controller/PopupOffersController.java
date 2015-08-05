@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,7 @@ import com.dealoka.app.general.Config;
 import com.dealoka.app.general.GlobalController;
 import com.dealoka.app.model.OfferGeo;
 import com.dealoka.app.receivers.OffersBroadcastReceiver;
+import com.dealoka.lib.calligraphy.CalligraphyContextWrapper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class PopupOffersController extends FragmentActivity{
@@ -75,7 +77,6 @@ public class PopupOffersController extends FragmentActivity{
 		clearSavedOffers();
 	}
 	private void clearSavedOffers(){
-		OffersBroadcastReceiver.savedOfferArray = new JSONArray();
 		GlobalController.closeNotification(84);
 	}
 	private void showPopup(OfferGeo offer){
@@ -86,6 +87,11 @@ public class PopupOffersController extends FragmentActivity{
 		getSupportFragmentManager().beginTransaction().replace(R.id.popup_container, popupOffer, 
 				PopupOffer.TAG).addToBackStack(null).commit();
 		popUpList.setVisibility(View.GONE);
+	}
+	
+	@Override
+	protected void attachBaseContext(Context newBase) {
+		super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
 	}
 	@Override
 	protected void onDestroy() {
@@ -138,6 +144,7 @@ public class PopupOffersController extends FragmentActivity{
 				String description = offer.c_offer_rec.name;
 				ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
 				offerDescription.setText(description);
+				offerDescription.setSelected(true);
 			}
 		}
 	}
