@@ -2,8 +2,6 @@ package com.dealoka.app.controller;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +26,6 @@ import com.dealoka.app.R;
 import com.dealoka.app.general.Config;
 import com.dealoka.app.general.GlobalController;
 import com.dealoka.app.model.OfferGeo;
-import com.dealoka.app.receivers.OffersBroadcastReceiver;
 import com.dealoka.lib.calligraphy.CalligraphyContextWrapper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -92,6 +89,11 @@ public class PopupOffersController extends FragmentActivity{
 	@Override
 	protected void attachBaseContext(Context newBase) {
 		super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+	}
+	@Override
+	protected void onPause() {
+		finish();
+		super.onPause();
 	}
 	@Override
 	protected void onDestroy() {

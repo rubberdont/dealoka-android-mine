@@ -124,7 +124,7 @@ public class DealokaService extends Service{
                     if (currentTowers.get(0).getCellId() != towers.get(0).getCellId()) {
                         //Sending towers to server
                         getOffers(towers.get(0));
-
+                        
                         towerDetected(towers.get(0));
                     }
                     currentTowers = towers;
