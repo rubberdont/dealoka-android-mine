@@ -28,7 +28,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/PopupTitleShadow"
             android:layout_below="@+id/merchant_name"
             android:background="#bb410c" />
 
@@ -39,7 +39,7 @@
             android:orientation="vertical"
             android:layout_marginTop="1dp" >
 
-            <ImageView
+            <codemagnus.com.dealogeolib.PopupImageView
                 android:id="@+id/offer_image"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"

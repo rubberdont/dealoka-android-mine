@@ -28,7 +28,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/PopupTitleShadow"
             android:layout_below="@+id/merchant_name"
             android:background="#bb410c" />
 
@@ -39,7 +39,7 @@
             android:layout_below="@id/merchant_name"
             android:layout_marginTop="2dp" >
 
-            <ImageView
+            <codemagnus.com.dealogeolib.PopupImageView
                 android:id="@+id/offer_image"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
@@ -70,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/info_container"
+            android:baselineAligned="false"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -115,10 +116,10 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
+        <codemagnus.com.dealogeolib.PopupImageView
             android:id="@+id/map_image"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/offer_add_info"
             android:layout_marginTop="1dp"
             android:contentDescription="@string/blank"
@@ -144,12 +145,28 @@
                 android:layout_height="1dp"
                 android:layout_weight="1" />
 
-            <TextView
+            <LinearLayout
                 android:id="@+id/more_info_button"
-                style="@style/TextPopup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/get_coupon" />
+                android:background="@drawable/popup_button_coupon"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="12dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:contentDescription="@string/blank"
+                    android:src="@drawable/ic_coupon" />
+
+                <TextView
+                    style="@style/TextCoupon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/get_coupon" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

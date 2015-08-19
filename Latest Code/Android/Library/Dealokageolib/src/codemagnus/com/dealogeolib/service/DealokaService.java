@@ -147,47 +147,6 @@ public class DealokaService extends Service{
                 getWifiOffers(list);
                 mCurrentWifis = list;
                 wifiDetected(list);
-//                List<WifiObject> tempList = new ArrayList<>();
-//                tempList.addAll(list);
-//                if(!tempList.isEmpty())
-//                    wifiDetected(tempList);
-//
-//                if (mCurrentWifis.size() == 0) {
-//                    LOGE("WIFI RESULT", "size == 0");
-//                    if (list != null) {
-//                        mCurrentWifis.addAll(list);
-//
-//                        mCurrentWifiObject = mCurrentWifis.get(0);
-//
-//                        //start location service if available
-//                        useLocationService();
-//
-//                        mCurrentWifiObject = mCurrentWifis.get(0);
-//                        getWifiOffers(mCurrentWifis);
-//                    }
-//
-//                } else {
-//                    for (WifiObject obj : mCurrentWifis) {
-//                        LOGE("DealokaService", "Current WifiResult : " + obj.getScanResult().BSSID + " : " + obj.getScanResult().SSID);
-//                    }
-//                    if (!GeneralUtils.sameList(mCurrentWifis, list)) {
-//                        LOGE("WIFI RESULT", "Not Same");
-//                        List<WifiObject> newAdded = mWifiUtility.getNewAddedWifi(mCurrentWifis, list);
-//                        if (!newAdded.isEmpty()) {
-//                            getWifiOffers(newAdded);
-//                        } else {
-//                            LOGE("newAdded", newAdded.size() + "");
-//                        }
-//
-//                        //start location service if available
-//                        useLocationService();
-//
-//                        mCurrentWifis.clear();
-//                        mCurrentWifis.addAll(tempList);
-//                        mCurrentWifiObject = mCurrentWifis.get(0);
-//                    }
-//
-//                }
             }
         });
     }

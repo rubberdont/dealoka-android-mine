@@ -13,6 +13,7 @@ public class WifiObject {
     private ScanResult scanResult;
     private String postStatus;
     private String time;
+    private int signalLevel;
 
     public WifiObject(){}
 
@@ -21,6 +22,7 @@ public class WifiObject {
         setNodeChanges("");
         setStatus("");
         setTime(GeneralUtils.getCurrentTime());
+        setSignalLevel(result.level);
     }
     public String getNodeChanges() {
         return nodeChanges;
@@ -56,4 +58,14 @@ public class WifiObject {
     public void setTime(String time) {
         this.time = time;
     }
+
+	public int getSignalLevel() {
+		return signalLevel;
+	}
+
+	public void setSignalLevel(int signalLevel) {
+		this.signalLevel = signalLevel;
+	}
+    
+    
 }

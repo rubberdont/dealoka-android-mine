@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,9 +14,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import codemagnus.com.dealogeolib.PopupImageView;
 import codemagnus.com.dealogeolib.service.DealokaService;
 
 import com.dealoka.app.Home;
@@ -132,10 +132,10 @@ public class PopupOffersController extends FragmentActivity{
 			return convertView;
 		}
 		class ViewHolder{
-			private ImageView offerImage;
+			private PopupImageView offerImage;
             private TextView merchantName, offerDescription;
 			public ViewHolder(View itemView){
-				offerImage        	= (ImageView) itemView.findViewById(R.id.offer_image);
+				offerImage        	= (PopupImageView) itemView.findViewById(R.id.offer_image);
                 merchantName        = (TextView) itemView.findViewById(R.id.merchant_name);
                 offerDescription    = (TextView) itemView.findViewById(R.id.offer_desc);
 			}
@@ -153,8 +153,9 @@ public class PopupOffersController extends FragmentActivity{
 	public class PopupOffer extends Fragment{
 		public static final String TAG = "PopupOffer";
 		private TextView merchantName, offerDesc, offerAddress, offerDistance;
-		private ImageView offerImage, mapImage;
-		private TextView closeButton, moreInfoButton;
+		private PopupImageView offerImage, mapImage;
+		private TextView closeButton;
+		private LinearLayout moreInfoButton;
 		private OfferGeo offer;
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -166,12 +167,12 @@ public class PopupOffersController extends FragmentActivity{
 			super.onViewCreated(view, savedInstanceState);
 			merchantName		= (TextView) view.findViewById(R.id.merchant_name);
 			offerDesc			= (TextView) view.findViewById(R.id.offer_desc);
-			offerImage			= (ImageView) view.findViewById(R.id.offer_image);
+			offerImage			= (PopupImageView) view.findViewById(R.id.offer_image);
 			offerAddress		= (TextView) view.findViewById(R.id.offer_address);
 			offerDistance		= (TextView) view.findViewById(R.id.offer_distance);
 			closeButton			= (TextView) view.findViewById(R.id.close_button);
-			moreInfoButton		= (TextView) view.findViewById(R.id.more_info_button);
-			mapImage			= (ImageView) view.findViewById(R.id.map_image);
+			moreInfoButton		= (LinearLayout) view.findViewById(R.id.more_info_button);
+			mapImage			= (PopupImageView) view.findViewById(R.id.map_image);
 		}
 		@Override
 		public void onActivityCreated(Bundle savedInstanceState) {
@@ -184,10 +185,10 @@ public class PopupOffersController extends FragmentActivity{
 			String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=";
 			mapUrl += offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
 			mapUrl += "&zoom=15&size=400x150&scale=2&maptype=roadmap";
-			mapUrl += "&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600|" + offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
+			mapUrl += "&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600|";
+			mapUrl += offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
 			ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
 			ImageLoader.getInstance().displayImage(mapUrl, mapImage, GlobalController.getOptionWithNoImage());
-			Log.e("MAP URL", mapUrl);
 			offerDesc.setText(description);
 			offerDesc.setSelected(true);
 			offerAddress.setText(offer.address);

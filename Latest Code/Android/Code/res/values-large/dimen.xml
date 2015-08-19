@@ -48,4 +48,6 @@
     <dimen name="HomeBottomMargin">70dp</dimen>
     <dimen name="ButtonSpecialCode">60dp</dimen>
     <dimen name="SpecialCodeMargin">10dp</dimen>
+    
+    <dimen name="PopupTitleShadow">2dp</dimen>
 </resources>

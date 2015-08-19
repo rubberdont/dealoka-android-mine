@@ -266,9 +266,19 @@
         <item name="android:textStyle">bold</item>
         <item name="android:minWidth">80dp</item>
         <item name="android:gravity">center</item>
+         <item name="android:textSize">@dimen/TextSub</item>
+        <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
+    </style>
+    <style name="TextCoupon">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:gravity">center</item>
+         <item name="android:textSize">@dimen/TextSub</item>
         <item name="font_path">fonts/MyriadPro-Bold.ttf</item>
     </style>
     <style name="TextNormal">
+        <item name="android:textSize">@dimen/TextSub</item>
         <item name="font_path">fonts/AguafinaScript-Regular.ttf</item>
     </style>
 </resources>
