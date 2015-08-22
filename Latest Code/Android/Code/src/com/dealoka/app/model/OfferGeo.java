@@ -24,6 +24,8 @@ public class OfferGeo implements Parcelable, Serializable {
 	public fk_merchant_id c_fk_merchant_id;
 	public merchant_rec c_merchant_rec;
 	public merchant_point c_merchant_point;
+	public float carrierLatitude;
+	public float carrierLongitude;
 	@SuppressLint("UseValueOf")
 	public OfferGeo(final String id, final String json_result) {
 		JSONObject json = null;
@@ -93,6 +95,11 @@ public class OfferGeo implements Parcelable, Serializable {
 		try {
 			c_merchant_point = new merchant_point(new JSONObject(json.getString("merchant_point")));
 		}catch(JSONException ex) {}
+		try{
+			JSONObject location = json.getJSONObject("location");
+			carrierLatitude = new Double(location.getString("Latitude")).floatValue();
+			carrierLongitude = new Double(location.getString("Longitude")).floatValue();
+		}catch(JSONException ex){}
 	}
 	public OfferGeo(Parcel in) {
 		id = in.readString();
@@ -110,6 +117,8 @@ public class OfferGeo implements Parcelable, Serializable {
 		c_fk_merchant_id = (fk_merchant_id)in.readParcelable(fk_merchant_id.class.getClassLoader());
 		c_merchant_rec = (merchant_rec)in.readParcelable(merchant_rec.class.getClassLoader());
 		c_merchant_point = (merchant_point)in.readParcelable(merchant_point.class.getClassLoader());
+		carrierLatitude = in.readFloat();
+		carrierLongitude = in.readFloat();
 	}
 	@Override
 	public int describeContents() {
@@ -132,6 +141,8 @@ public class OfferGeo implements Parcelable, Serializable {
 		dest.writeParcelable(c_fk_merchant_id, flags);
 		dest.writeParcelable(c_merchant_rec, flags);
 		dest.writeParcelable(c_merchant_point, flags);
+		dest.writeFloat(carrierLatitude);
+		dest.writeFloat(carrierLongitude);
 	}
 	@SuppressWarnings("rawtypes")
 	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {

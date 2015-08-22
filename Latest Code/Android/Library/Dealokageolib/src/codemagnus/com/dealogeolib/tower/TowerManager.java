@@ -27,8 +27,9 @@ import com.google.android.gms.maps.model.LatLng;
  * Created by eharoldreyes on 11/21/14.
  */
 public class TowerManager {
-
+	
     public static final String tag = "TowerManager";
+    private static TowerManager instance;
     private final TelephonyManager telephonyManager;
     private TowersChangeCallback towersChangeCallback;
     private PrimaryTowersChangeCallback primaryTowersChangeCallback;
@@ -68,6 +69,16 @@ public class TowerManager {
             }
         }
     };
+    
+    public static TowerManager getInstance(Context context){
+    	 if(instance == null){
+             synchronized (TowerManager.class){
+                 if(instance == null)
+                     instance = new TowerManager(context);
+             }
+         }
+    	return instance;
+    }
 
     public TowerManager(Context context){
         telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -137,7 +148,7 @@ public class TowerManager {
         }else if(cellLocation instanceof CellLocation){
             LOGD(tag, "Cell location instance: CellLocation");
             GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
-            return new Tower(Converter.gsmCellLocationToJson(this, gsmCellLocation));
+            return new Tower(Converter.gsmCellLocationToJson(instance, gsmCellLocation));
         }  else {
             LOGD(tag, "Cell location instance: null");
             return null;

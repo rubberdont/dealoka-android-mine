@@ -33,6 +33,8 @@ import codemagnus.com.dealogeolib.wifi.WifiObject;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 /**
  * Created by Harold on 12/13/2014.
@@ -247,5 +249,66 @@ public class GeneralUtils {
 
         return lessTime;
     }
+    
+    public static double distanceBetweenTwoPoints(double arg1, double arg2, double arg01, double arg02){
+    	float R = 6371;
+    	double lat1 =  Math.toRadians(arg1);
+    	double lng1 =  Math.toRadians(arg2);
+    	double lat2 =  Math.toRadians(arg01);
+    	double lng2 =  Math.toRadians(arg02);
+    	
+    	double dlng = lng2 - lng1;
+    	double dlat = lat2 - lat1;
+    	
+    	double a = (Math.pow(Math.sin(dlat/ 2), 2) +
+    			Math.cos(lat1) * Math.cos(lat2) *
+    			Math.pow(Math.sin(dlng / 2), 2));
+    	
+    	double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    	double distance = R * c;
+    	return Math.round(distance);
+    }
+    
+    public static LatLng midPoints(LatLng point1, LatLng point2){
+        double lat1,lon1,lat2;
+        double dLon = Math.toRadians(point2.longitude - point1.longitude);
 
+        lat1 = Math.toRadians(point1.latitude);
+        lat2 = Math.toRadians(point2.latitude);
+        lon1 = Math.toRadians(point1.longitude);
+
+        double Bx = Math.cos(lat2) * Math.cos(dLon);
+        double By = Math.cos(lat2) * Math.sin(dLon);
+        double lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + Bx) * (Math.cos(lat1) + Bx) + By * By));
+        double lon3 = lon1 + Math.atan2(By, Math.cos(lat1) + Bx);
+
+        return new LatLng(Math.toDegrees(lat3),Math.toDegrees(lon3));
+    }
+    public static int zoomLevel(double distance, int w, int h){
+    	int mapDisplay = Math.min(w, h);
+    	return (int) Math.floor(8 - Math.log(1.6446 * distance / Math.sqrt(2 * (mapDisplay * mapDisplay))) / Math.log (2));
+    }
+    public static int boundsZoomLevel(LatLngBounds bounds, int w, int h){
+    	LatLng ne = bounds.northeast;
+        LatLng sw = bounds.southwest;
+
+        double latFraction = (latRad(ne.latitude) - latRad(sw.latitude)) / Math.PI;
+
+        double lngDiff = ne.longitude - sw.longitude;
+        double lngFraction = ((lngDiff < 0) ? (lngDiff + 360) : lngDiff) / 360;
+
+        double latZoom = zoom(h, 256, latFraction);
+        double lngZoom = zoom(w, 256, lngFraction);
+
+        int result = Math.min((int)latZoom, (int)lngZoom);
+        return Math.min(result, 21);
+    }
+    private static double latRad(double lat){
+    	 double sin = Math.sin(lat * Math.PI / 180);
+    	    double radX2 = Math.log((1 + sin) / (1 - sin)) / 2;
+    	    return Math.max(Math.min(radX2, Math.PI), -Math.PI) / 2;
+    }
+    private static double zoom(int mapPx, int worldPx, double fraction) {
+        return Math.floor(Math.log(mapPx / worldPx / fraction) / 0.6931471805599453);
+    }
 }

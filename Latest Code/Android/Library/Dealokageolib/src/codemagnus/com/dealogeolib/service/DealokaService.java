@@ -68,7 +68,7 @@ public class DealokaService extends Service{
     public void onCreate() {
         super.onCreate();
         context         = DealokaService.this;
-        mTowerManager   = new TowerManager(this);
+        mTowerManager   = TowerManager.getInstance(this);
         mWifiHelper     = new WifiHelper(this);
 
         sharedPreferences = context.getSharedPreferences(BASEURL, MODE_PRIVATE);
@@ -255,12 +255,15 @@ public class DealokaService extends Service{
         try {
             array = new JSONArray(data);
             for (int i = 0; i < array.length(); i++) {
-				JSONObject wifiObj = array.getJSONObject(i);
-				if(wifiObj.has("offers")){
-					JSONArray offerAry = wifiObj.getJSONArray("offers");
+				JSONObject carrierObj = array.getJSONObject(i);
+				JSONObject locObj = carrierObj.getJSONObject("location");
+				if(carrierObj.has("offers")){
+					JSONArray offerAry = carrierObj.getJSONArray("offers");
 					if(offerAry.length() > 0){
 						for (int j = 0; j < offerAry.length(); j++) {
-							offersArray.put(offerAry.getJSONObject(j));
+							JSONObject offerObj = offerAry.getJSONObject(j);
+							offerObj.put("location", locObj);
+							offersArray.put(offerObj);
 						}
 					}
 				}

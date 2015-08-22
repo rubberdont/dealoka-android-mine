@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import codemagnus.com.dealogeolib.PopupImageView;
 import codemagnus.com.dealogeolib.service.DealokaService;
+import codemagnus.com.dealogeolib.utils.GeneralUtils;
 
 import com.dealoka.app.Home;
 import com.dealoka.app.Main;
@@ -27,6 +29,8 @@ import com.dealoka.app.general.Config;
 import com.dealoka.app.general.GlobalController;
 import com.dealoka.app.model.OfferGeo;
 import com.dealoka.lib.calligraphy.CalligraphyContextWrapper;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class PopupOffersController extends FragmentActivity{
@@ -182,11 +186,28 @@ public class PopupOffersController extends FragmentActivity{
 			String image_url = offer.c_offer_rec.image.replace("SIZEREQ_", "og");
 			image_url = offer.image_prefix + image_url;
 			String description = offer.c_offer_rec.name;
+			
+			double test1Lat = 14.168848;
+			double test1Lng = 121.241317;
+			double test2Lat = 14.169761;
+			double test2Lng = 121.243785;
+			
+			LatLng merchantPoint = new LatLng(offer.c_merchant_point.Latitude, offer.c_merchant_point.Longitude);
+			LatLng carrierPoint = new LatLng(offer.carrierLatitude, offer.carrierLongitude);
+			LatLng midpoint = GeneralUtils.midPoints(merchantPoint, carrierPoint);
+			double midLat = midpoint.latitude;
+			double midLng = midpoint.longitude;
+			
+			
 			String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=";
-			mapUrl += offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
-			mapUrl += "&zoom=15&size=400x150&scale=2&maptype=roadmap";
+			mapUrl += midLat + "," + midLng;
+			mapUrl += "&size=400x200&scale=2&maptype=roadmap";
 			mapUrl += "&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600|";
-			mapUrl += offer.c_merchant_point.Latitude + "," + offer.c_merchant_point.Longitude;
+			mapUrl += merchantPoint.latitude + "," + merchantPoint.longitude;
+			mapUrl += "&markers=color:green|label:C|";
+			mapUrl += carrierPoint.latitude + "," + carrierPoint.longitude;
+			
+			Log.e("Map URL", mapUrl);
 			ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
 			ImageLoader.getInstance().displayImage(mapUrl, mapImage, GlobalController.getOptionWithNoImage());
 			offerDesc.setText(description);
