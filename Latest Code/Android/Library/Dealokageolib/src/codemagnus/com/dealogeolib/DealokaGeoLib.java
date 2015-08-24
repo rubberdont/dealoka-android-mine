@@ -22,6 +22,7 @@ import codemagnus.com.dealogeolib.interfaces.NotificationMessageListener;
 import codemagnus.com.dealogeolib.service.DealokaService;
 import codemagnus.com.dealogeolib.service.notif.NotificationReceiver;
 import codemagnus.com.dealogeolib.tower.Tower;
+import codemagnus.com.dealogeolib.utils.GeneralUtils;
 import codemagnus.com.dealogeolib.wifi.WifiObject;
 
 /**
@@ -33,6 +34,7 @@ public class DealokaGeoLib {
     public static final String CONFIGURATION_ISNULL = TAG + " configuration cannot be initialized with null";
     public static final String ENDPOINT_EXCEPTION   = "Unable to connect. Url connection is null";
     public static final String SERVICE_EXCEPTION    = "The dealokageolib service is null.";
+    public static final String DEVICE_ID_NULL    	= "deviceId is null";
 
     private static DealokaGeoLib instance;
 
@@ -124,9 +126,16 @@ public class DealokaGeoLib {
 
         this.context            = configuration.context;	
         this.sendingEndPointUrl = configuration.baseConnectionUrl;
+        if(configuration.deviceId == null){
+        	throw new NullPointerException(DEVICE_ID_NULL);
+        }else if(configuration.deviceId == ""){
+        	throw new NullPointerException(DEVICE_ID_NULL);
+        }
 
-        this.sharedPreferences  = context.getSharedPreferences(DealokaService.BASEURL, Context.MODE_PRIVATE);
+        this.sharedPreferences  = context.getSharedPreferences(TAG, Context.MODE_PRIVATE);
         this.sharedPreferences.edit().putString(DealokaService.BASEURL, sendingEndPointUrl).apply();
+        if(this.sharedPreferences.getString(DealokaService.DEVICE_ID, "") == "")
+        	this.sharedPreferences.edit().putString(DealokaService.DEVICE_ID, this.configuration.deviceId).apply();
 
         if(!ISSERVICERUNNING(context, DealokaService.class))
             startService();

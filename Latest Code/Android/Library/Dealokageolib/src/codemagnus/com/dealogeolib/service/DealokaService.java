@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import android.net.wifi.ScanResult;
 import android.os.Binder;
 import android.os.IBinder;
+import codemagnus.com.dealogeolib.DealokaGeoLib;
 import codemagnus.com.dealogeolib.http.WebserviceRequest;
 import codemagnus.com.dealogeolib.interfaces.DetectorListener;
 import codemagnus.com.dealogeolib.tower.Tower;
@@ -35,11 +36,13 @@ public class DealokaService extends Service{
 
     //Tag for shared preference
     public static final String BASEURL = "baseURL";
+    public static final String DEVICE_ID = "deviceId";
     public static final String ENABLE_REQUEST = "enableRequest";
 
     public static final String OFFERS_FROM_TOWER = "com.codemagnus.dealokageolib.NEW_OFFERS";
     public static final String NEW_OFFERS = "new_offers";
     private String baseUrl;
+    private String deviceId;
 
     //Declaring current List
     private List<Tower> currentTowers = new ArrayList<>();
@@ -71,8 +74,9 @@ public class DealokaService extends Service{
         mTowerManager   = TowerManager.getInstance(this);
         mWifiHelper     = new WifiHelper(this);
 
-        sharedPreferences = context.getSharedPreferences(BASEURL, MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(DealokaGeoLib.TAG, MODE_PRIVATE);
         baseUrl         = sharedPreferences.getString(BASEURL, "");
+        deviceId		= sharedPreferences.getString(DEVICE_ID, "");
         canGetOffers	= sharedPreferences.getBoolean(ENABLE_REQUEST, true);
         setUpTowerListener();
         setUpWifiListener();
@@ -187,8 +191,8 @@ public class DealokaService extends Service{
                 .append(tower.getCellId());
 
         tower.setBts(sBuilder.toString());
-
-        mTowerManager.getOffersByTower(baseUrl, tower, new WebserviceRequest.Callback() {
+        
+        mTowerManager.getOffersByTower(baseUrl, tower, deviceId, new WebserviceRequest.Callback() {
             @Override
             public void onResult(int responseCode, String responseMessage, Exception exception) {
                 if (responseCode == 200 && exception == null) {

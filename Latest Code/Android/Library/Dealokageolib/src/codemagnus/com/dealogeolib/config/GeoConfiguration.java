@@ -14,6 +14,7 @@ public final class GeoConfiguration {
 
     public final String baseConnectionUrl;
     public final String socketConnectionUrl;
+    public final String deviceId;
 
     public final boolean appendCoordinates;
     public final boolean submitData;
@@ -30,12 +31,14 @@ public final class GeoConfiguration {
         submitData          = builder.canSubmitData;
         disableSocketIO     = builder.disableSocket;
         mDetectorListener   = builder.mDetectorListener;
+        deviceId			= builder.deviceId;
     }
 
     public static class Builder {
         private Context context;
         private String baseConnectionUrl;
         private String socketConnectionUrl;
+        private String deviceId;
         private boolean writeDebugLogs      = false;
         private boolean appendCoordinates   = false;
         private boolean canSubmitData       = true;
@@ -74,6 +77,10 @@ public final class GeoConfiguration {
         public Builder setDetectorListener(DetectorListener newListener){
             this.mDetectorListener = newListener;
             return this;
+        }
+        public Builder setDeviceId(String deviceId){
+        	this.deviceId = deviceId;
+			return this;
         }
         public GeoConfiguration build(){
             return new GeoConfiguration(this);

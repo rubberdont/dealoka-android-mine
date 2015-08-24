@@ -1,7 +1,12 @@
 package com.dealoka.app;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import codemagnus.com.dealogeolib.DealokaGeoLib;
 import codemagnus.com.dealogeolib.config.GeoConfiguration;
+import codemagnus.com.dealogeolib.utils.GeneralUtils;
 
 import com.dealoka.app.general.Config;
 import com.dealoka.app.general.GlobalVariables;
@@ -15,10 +20,6 @@ import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.SaveCallback;
-
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 
 public class DealokaApp extends Application {
 	private static Context context;
@@ -82,9 +83,11 @@ public class DealokaApp extends Application {
 		ParseInstallation.getCurrentInstallation().saveInBackground();
 	}
 	private void setDealokaGeoLib(){
+		Log.e("DEVICE_ID", "" + GeneralUtils.getDeviceID(context));
 		GeoConfiguration geoConfiguration = new GeoConfiguration.Builder(DealokaApp.getAppContext())
 				.setEndpoint(Config.DEALOKA_GEO_LIB_URL)
 				.writeDebugLogs()
+				.setDeviceId(GlobalVariables.device_id)
                 .build();
 		DealokaGeoLib.getInstance().init(geoConfiguration);
 	}

@@ -20,7 +20,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import codemagnus.com.dealogeolib.PopupImageView;
 import codemagnus.com.dealogeolib.service.DealokaService;
-import codemagnus.com.dealogeolib.utils.GeneralUtils;
 
 import com.dealoka.app.Home;
 import com.dealoka.app.Main;
@@ -29,8 +28,6 @@ import com.dealoka.app.general.Config;
 import com.dealoka.app.general.GlobalController;
 import com.dealoka.app.model.OfferGeo;
 import com.dealoka.lib.calligraphy.CalligraphyContextWrapper;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class PopupOffersController extends FragmentActivity{
@@ -187,27 +184,9 @@ public class PopupOffersController extends FragmentActivity{
 			image_url = offer.image_prefix + image_url;
 			String description = offer.c_offer_rec.name;
 			
-			double test1Lat = 14.168848;
-			double test1Lng = 121.241317;
-			double test2Lat = 14.169761;
-			double test2Lng = 121.243785;
+			String mapUrl = offer.mapUrl;
 			
-			LatLng merchantPoint = new LatLng(offer.c_merchant_point.Latitude, offer.c_merchant_point.Longitude);
-			LatLng carrierPoint = new LatLng(offer.carrierLatitude, offer.carrierLongitude);
-			LatLng midpoint = GeneralUtils.midPoints(merchantPoint, carrierPoint);
-			double midLat = midpoint.latitude;
-			double midLng = midpoint.longitude;
-			
-			
-			String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=";
-			mapUrl += midLat + "," + midLng;
-			mapUrl += "&size=400x200&scale=2&maptype=roadmap";
-			mapUrl += "&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600|";
-			mapUrl += merchantPoint.latitude + "," + merchantPoint.longitude;
-			mapUrl += "&markers=color:green|label:C|";
-			mapUrl += carrierPoint.latitude + "," + carrierPoint.longitude;
-			
-			Log.e("Map URL", mapUrl);
+			Log.e("Map URL", "" + mapUrl);
 			ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
 			ImageLoader.getInstance().displayImage(mapUrl, mapImage, GlobalController.getOptionWithNoImage());
 			offerDesc.setText(description);

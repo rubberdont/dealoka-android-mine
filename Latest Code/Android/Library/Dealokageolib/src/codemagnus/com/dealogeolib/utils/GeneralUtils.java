@@ -23,7 +23,7 @@ import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.location.Location;
-import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
@@ -34,7 +34,6 @@ import codemagnus.com.dealogeolib.wifi.WifiObject;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 
 /**
  * Created by Harold on 12/13/2014.
@@ -99,10 +98,6 @@ public class GeneralUtils {
             e.printStackTrace();
         }
         return objTower;
-    }
-
-    public static String getDeviceID(Context context){
-        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
     public static String getOnlyDate() {
@@ -284,31 +279,9 @@ public class GeneralUtils {
 
         return new LatLng(Math.toDegrees(lat3),Math.toDegrees(lon3));
     }
-    public static int zoomLevel(double distance, int w, int h){
-    	int mapDisplay = Math.min(w, h);
-    	return (int) Math.floor(8 - Math.log(1.6446 * distance / Math.sqrt(2 * (mapDisplay * mapDisplay))) / Math.log (2));
-    }
-    public static int boundsZoomLevel(LatLngBounds bounds, int w, int h){
-    	LatLng ne = bounds.northeast;
-        LatLng sw = bounds.southwest;
-
-        double latFraction = (latRad(ne.latitude) - latRad(sw.latitude)) / Math.PI;
-
-        double lngDiff = ne.longitude - sw.longitude;
-        double lngFraction = ((lngDiff < 0) ? (lngDiff + 360) : lngDiff) / 360;
-
-        double latZoom = zoom(h, 256, latFraction);
-        double lngZoom = zoom(w, 256, lngFraction);
-
-        int result = Math.min((int)latZoom, (int)lngZoom);
-        return Math.min(result, 21);
-    }
-    private static double latRad(double lat){
-    	 double sin = Math.sin(lat * Math.PI / 180);
-    	    double radX2 = Math.log((1 + sin) / (1 - sin)) / 2;
-    	    return Math.max(Math.min(radX2, Math.PI), -Math.PI) / 2;
-    }
-    private static double zoom(int mapPx, int worldPx, double fraction) {
-        return Math.floor(Math.log(mapPx / worldPx / fraction) / 0.6931471805599453);
-    }
+    
+    public static String getDeviceID(final Context context) {
+		final TelephonyManager telephony_manager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+		return telephony_manager.getDeviceId();
+	}
 }

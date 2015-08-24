@@ -253,9 +253,9 @@ public class TowerManager {
             return ((Integer) o2.getSignalStrength()).compareTo(o1.getSignalStrength());
         }
     }
-    public WebserviceRequest.HttpURLCONNECTION getOffersByTower(String url, Tower tower,WebserviceRequest.Callback callback){
+    public WebserviceRequest.HttpURLCONNECTION getOffersByTower(String url, Tower tower,String deviceId, WebserviceRequest.Callback callback){
         WebserviceRequest.HttpURLCONNECTION getOffers = new WebserviceRequest.HttpURLCONNECTION();
-        getOffers.setUrl(url + "/station/offers?bts=" + tower.getBts());
+        getOffers.setUrl(url + "/station/offers?bts=" + tower.getBts() + "&deviceId=" + deviceId);
         getOffers.setRequestMethod("GET");
         getOffers.setCallback(callback);
         getOffers.execute();
