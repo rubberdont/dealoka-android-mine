@@ -226,7 +226,7 @@ public class DealokaService extends Service{
             wifiReqTimer.cancel();
         }
         String BSSIDArray = mWifiUtility.getWifiBSSID(wifiObjects).toString();
-        mWifiHelper.getOffersByWifi(baseUrl, BSSIDArray, new WebserviceRequest.Callback() {
+        mWifiHelper.getOffersByWifi(baseUrl, BSSIDArray, deviceId, new WebserviceRequest.Callback() {
             @Override
             public void onResult(int responseCode, String responseMessage, Exception exception) {
                 if (responseCode == 200 && exception == null) {

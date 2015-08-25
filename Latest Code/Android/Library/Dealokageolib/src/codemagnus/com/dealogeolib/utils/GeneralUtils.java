@@ -245,23 +245,18 @@ public class GeneralUtils {
         return lessTime;
     }
     
-    public static double distanceBetweenTwoPoints(double arg1, double arg2, double arg01, double arg02){
-    	float R = 6371;
-    	double lat1 =  Math.toRadians(arg1);
-    	double lng1 =  Math.toRadians(arg2);
-    	double lat2 =  Math.toRadians(arg01);
-    	double lng2 =  Math.toRadians(arg02);
-    	
-    	double dlng = lng2 - lng1;
-    	double dlat = lat2 - lat1;
-    	
-    	double a = (Math.pow(Math.sin(dlat/ 2), 2) +
-    			Math.cos(lat1) * Math.cos(lat2) *
-    			Math.pow(Math.sin(dlng / 2), 2));
-    	
-    	double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    	double distance = R * c;
-    	return Math.round(distance);
+    public static int calculateBtsSignal(int rssi){
+        int MAX_RSSI = 31;
+        final int MIN_RSSI = 0;
+        if (rssi <= MIN_RSSI) {
+            return 0;
+        } else if (rssi >= MAX_RSSI) {
+            return 100 - 1;
+        } else {
+            float inputRange = (MAX_RSSI - MIN_RSSI);
+            float outputRange = (100 - 1);
+            return (int)((float)(rssi - MIN_RSSI) * outputRange / inputRange);
+        }
     }
     
     public static LatLng midPoints(LatLng point1, LatLng point2){

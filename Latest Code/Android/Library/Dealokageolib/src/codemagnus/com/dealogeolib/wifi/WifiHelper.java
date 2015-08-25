@@ -75,10 +75,12 @@ public class WifiHelper {
         return wifiInfo;
     }
 
-    public WebserviceRequest.HttpURLCONNECTION getOffersByWifi(String url, String bssids, WebserviceRequest.Callback callback){
+    public WebserviceRequest.HttpURLCONNECTION getOffersByWifi(String url,String bssids, String deviceId, 
+    		WebserviceRequest.Callback callback){
         WebserviceRequest.HttpURLCONNECTION getWifiOffers = new WebserviceRequest.HttpURLCONNECTION();
-
-        getWifiOffers.setUrl(url + "/wifi/offers?bssid=" + bssids);
+        url += "/wifi/offers?bssid=" + bssids;
+        url += "&deviceId=" + deviceId;
+        getWifiOffers.setUrl(url);
         getWifiOffers.setRequestMethod("GET");
         getWifiOffers.setCallback(callback);
         getWifiOffers.execute();

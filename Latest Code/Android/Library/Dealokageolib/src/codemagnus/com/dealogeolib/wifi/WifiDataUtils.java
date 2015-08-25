@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiManager;
 import codemagnus.com.dealogeolib.http.WebService;
 import codemagnus.com.dealogeolib.utils.GeneralUtils;
 
@@ -104,7 +105,14 @@ public class WifiDataUtils {
         JSONArray listBSSID = new JSONArray();
         for (int i = 0; i < list.size(); i++) {
             WifiObject wifi = list.get(i);
-            listBSSID.put(wifi.getScanResult().BSSID);
+            JSONObject wifiObj = new JSONObject();
+            try {
+				wifiObj.put("_id", wifi.getScanResult().BSSID);
+				wifiObj.put("signal", WifiManager.calculateSignalLevel(wifi.getSignalLevel(), 100));
+	            listBSSID.put(wifiObj);
+			} catch (JSONException e) {
+				;
+			}
         }
         return listBSSID;
     }

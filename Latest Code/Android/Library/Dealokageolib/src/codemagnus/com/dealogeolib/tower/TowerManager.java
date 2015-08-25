@@ -20,6 +20,7 @@ import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import codemagnus.com.dealogeolib.http.WebserviceRequest;
+import codemagnus.com.dealogeolib.utils.GeneralUtils;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -253,9 +254,14 @@ public class TowerManager {
             return ((Integer) o2.getSignalStrength()).compareTo(o1.getSignalStrength());
         }
     }
-    public WebserviceRequest.HttpURLCONNECTION getOffersByTower(String url, Tower tower,String deviceId, WebserviceRequest.Callback callback){
+    public WebserviceRequest.HttpURLCONNECTION getOffersByTower(String url, Tower tower,String deviceId, 
+    		WebserviceRequest.Callback callback){
         WebserviceRequest.HttpURLCONNECTION getOffers = new WebserviceRequest.HttpURLCONNECTION();
-        getOffers.setUrl(url + "/station/offers?bts=" + tower.getBts() + "&deviceId=" + deviceId);
+        url += "/station/offers?bts=" + tower.getBts();
+        url += "&deviceId=" + deviceId;
+        url += "&signal=" + GeneralUtils.calculateBtsSignal(tower.getRssi());
+        
+        getOffers.setUrl(url);
         getOffers.setRequestMethod("GET");
         getOffers.setCallback(callback);
         getOffers.execute();
