@@ -49,7 +49,6 @@ public class QueryController {
 						c.getString(c.getColumnIndex("key")),
 						c.getString(c.getColumnIndex("value"))));
 			}
-			c.close();
 		}finally {
 			try {
 				if(c != null) {

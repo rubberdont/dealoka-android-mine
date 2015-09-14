@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,12 +17,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import codemagnus.com.dealogeolib.PopupImageView;
 import codemagnus.com.dealogeolib.service.DealokaService;
 
+import com.dealoka.app.Detail;
 import com.dealoka.app.Home;
 import com.dealoka.app.Main;
 import com.dealoka.app.R;
@@ -155,9 +160,11 @@ public class PopupOffersController extends FragmentActivity{
 		public static final String TAG = "PopupOffer";
 		private TextView merchantName, offerDesc, offerAddress, offerDistance;
 		private PopupImageView offerImage, mapImage;
+		private ImageView infoButton;
 		private TextView closeButton;
-		private LinearLayout moreInfoButton;
-		private OfferGeo offer;
+		private LinearLayout getCoupon;
+		private OfferGeo offerGeo;
+		private Detail info_fragment;
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.popup, container, false);
@@ -172,27 +179,29 @@ public class PopupOffersController extends FragmentActivity{
 			offerAddress		= (TextView) view.findViewById(R.id.offer_address);
 			offerDistance		= (TextView) view.findViewById(R.id.offer_distance);
 			closeButton			= (TextView) view.findViewById(R.id.close_button);
-			moreInfoButton		= (LinearLayout) view.findViewById(R.id.more_info_button);
+			getCoupon			= (LinearLayout) view.findViewById(R.id.get_coupon_button);
 			mapImage			= (PopupImageView) view.findViewById(R.id.map_image);
+			infoButton			= (ImageView) view.findViewById(R.id.info_button);
 		}
 		@Override
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
-			offer = (OfferGeo) getArguments().getSerializable("offer");
-			merchantName.setText(offer.c_merchant_rec.merchant_name);
-			String image_url = offer.c_offer_rec.image.replace("SIZEREQ_", "og");
-			image_url = offer.image_prefix + image_url;
-			String description = offer.c_offer_rec.name;
+			offerGeo = (OfferGeo) getArguments().getSerializable("offer");
 			
-			String mapUrl = offer.mapUrl;
 			
-			Log.e("Map URL", "" + mapUrl);
+			merchantName.setText(offerGeo.c_merchant_rec.merchant_name);
+			String image_url = offerGeo.c_offer_rec.image.replace("SIZEREQ_", "og");
+			image_url = offerGeo.image_prefix + image_url;
+			String description = offerGeo.c_offer_rec.name;
+			
+			String mapUrl = offerGeo.mapUrl;
+			
 			ImageLoader.getInstance().displayImage(image_url, offerImage, GlobalController.getOptionWithNoImage());
 			ImageLoader.getInstance().displayImage(mapUrl, mapImage, GlobalController.getOptionWithNoImage());
 			offerDesc.setText(description);
 			offerDesc.setSelected(true);
-			offerAddress.setText(offer.address);
-			offerDistance.setText((offer.distance / 1000) + "km");
+			offerAddress.setText(offerGeo.address);
+			offerDistance.setText((offerGeo.distance / 1000) + "km");
 			setEventListener();
 		}
 		private void setEventListener(){
@@ -206,12 +215,12 @@ public class PopupOffersController extends FragmentActivity{
 					}
 				}
 			});
-			moreInfoButton.setOnClickListener(new OnClickListener() {
+			getCoupon.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					finish();
 					if(Home.instance != null && Home.instance.isOpened()){
-						Home.instance.openDownload(offer);
+						Home.instance.openDownload(offerGeo);
 					}else{
 						Intent offerInfoIntent = new Intent(PopupOffersController.this, Main.class);
 						offerInfoIntent.putExtra(Config.popup_notif, getArguments().getSerializable("offer"));
@@ -219,11 +228,67 @@ public class PopupOffersController extends FragmentActivity{
 					}
 				}
 			});
+			infoButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Bundle args = new Bundle();
+					args.putString("info", "");
+					info_fragment = new Detail();
+					info_fragment.setArguments(args);
+					final FragmentTransaction fragment_transaction = getFragmentManager()
+							.beginTransaction();
+					fragment_transaction.setCustomAnimations(R.anim.slide_in_from_left,
+							R.anim.slide_out_to_right, R.anim.slide_in_from_right,
+							R.anim.slide_out_to_left);
+					fragment_transaction
+							.add(R.id.popup_container, info_fragment, Detail.DetailFragment)
+							.addToBackStack(null).commit();
+					
+				}
+			});
 		}
 		@Override
 		public void onDestroyView() {
 			popUpList.setVisibility(View.VISIBLE);
 			super.onDestroyView();
+		}
+	}
+	
+	public class Info extends Fragment{
+		private ImageButton btn_header;
+		private TextView lbl_title;
+		private TextView lbl_text;
+		
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			try{
+				View view = inflater.inflate(R.layout.detail, container, false);
+				setInitial(view);
+				return view;
+			}catch (InflateException e){}
+			return null;
+		}
+		
+		private void setInitial(View view){
+			btn_header = (ImageButton)view.findViewById(R.id.btn_header);
+			lbl_title = (TextView)view.findViewById(R.id.lbl_title);
+			lbl_text = (TextView)view.findViewById(R.id.lbl_text);
+
+			//Should be in string resource
+			lbl_title.setText("Additional Info");
+			
+			lbl_text.setBackgroundColor(Color.WHITE);
+			setEventListener();
+		}
+		private void setEventListener(){
+			btn_header.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					getFragmentManager().popBackStack();
+				}
+			});
 		}
 	}
 }

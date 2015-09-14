@@ -163,4 +163,5 @@
     <string name="instruct_code">Kode Voucher: </string>
     <string name="close">Close</string>
     <string name="get_coupon">Get Coupon</string>
+    <string name="info_button">Info</string>
 </resources>

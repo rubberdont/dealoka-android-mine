@@ -130,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/map_image"
             android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <TextView
@@ -142,11 +143,25 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/info_button"
+                android:background="@drawable/popup_button"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_info"
+                android:contentDescription="@string/blank"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <LinearLayout
-                android:id="@+id/more_info_button"
+                android:id="@+id/get_coupon_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/popup_button_coupon"

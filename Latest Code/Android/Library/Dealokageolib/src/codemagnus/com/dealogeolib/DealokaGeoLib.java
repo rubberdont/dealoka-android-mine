@@ -22,7 +22,6 @@ import codemagnus.com.dealogeolib.interfaces.NotificationMessageListener;
 import codemagnus.com.dealogeolib.service.DealokaService;
 import codemagnus.com.dealogeolib.service.notif.NotificationReceiver;
 import codemagnus.com.dealogeolib.tower.Tower;
-import codemagnus.com.dealogeolib.utils.GeneralUtils;
 import codemagnus.com.dealogeolib.wifi.WifiObject;
 
 /**
@@ -155,7 +154,7 @@ public class DealokaGeoLib {
         mHandler.postDelayed(detectorRunnable, 1500);
     }
     public void setEnableSDKcore(Context context, boolean isEnable) {
-    	this.sharedPreferences  = context.getSharedPreferences(DealokaService.BASEURL, Context.MODE_PRIVATE);
+    	this.sharedPreferences  = context.getSharedPreferences(TAG, Context.MODE_PRIVATE);
     	this.sharedPreferences.edit().putBoolean(DealokaService.ENABLE_REQUEST, isEnable).apply();
 	}
     public void onStop(){

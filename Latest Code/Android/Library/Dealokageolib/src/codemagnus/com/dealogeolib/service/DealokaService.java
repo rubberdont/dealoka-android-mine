@@ -77,7 +77,7 @@ public class DealokaService extends Service{
         sharedPreferences = context.getSharedPreferences(DealokaGeoLib.TAG, MODE_PRIVATE);
         baseUrl         = sharedPreferences.getString(BASEURL, "");
         deviceId		= sharedPreferences.getString(DEVICE_ID, "");
-        canGetOffers	= sharedPreferences.getBoolean(ENABLE_REQUEST, true);
+        
         setUpTowerListener();
         setUpWifiListener();
     }
@@ -174,6 +174,7 @@ public class DealokaService extends Service{
     }
 
     private void getOffers(final Tower tower){
+    	canGetOffers	= sharedPreferences.getBoolean(ENABLE_REQUEST, false);
     	if(!canGetOffers){
         	return;
         }
@@ -219,6 +220,7 @@ public class DealokaService extends Service{
     }
 
     private void getWifiOffers(final List<WifiObject> wifiObjects){
+    	canGetOffers	= sharedPreferences.getBoolean(ENABLE_REQUEST, false);
     	if(!canGetOffers){
         	return;
         }
